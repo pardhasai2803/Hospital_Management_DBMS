@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>File Upload Result</title>
+</head>
+<body>
+	{% if file_url %}
+		<h2>File uploaded successfully!</h2>
+		<p>View your file <a href="{{ file_url }}">here</a>.</p>
+	{% else %}
+		<h2>Upload a file</h2>
+		<form  method="post" enctype="multipart/form-data">
+			{% csrf_token %}
+			<label for="file">Select a file to upload:</label>
+			<input type="file" id="file" name="file">
+			<button type="submit">Upload File</button>
+		</form>
+	{% endif %}
+</body>
+</html>
